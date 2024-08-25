@@ -1,9 +1,9 @@
+import 'react-native-gesture-handler';
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Splash from './src/screens/Splash';
-import Home from './src/screens/Home';
-import Reservation from './src/screens/Reservation';
+import MyDrawer from './src/navigation/MyDrawer';
 
 
 
@@ -17,10 +17,7 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Splash" component={Splash} />
-        <Stack.Screen name='Home' component={Home} />
-        <Stack.Screen name='Reservation' component={Reservation} />
-
-        {/* <Stack.Screen name="MyDrawer" component={MyDrawer} /> */}
+        <Stack.Screen name="MyDrawer" component={MyDrawer} />
       </Stack.Navigator>
     </NavigationContainer>
   )
