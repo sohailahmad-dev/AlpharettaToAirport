@@ -26,6 +26,25 @@ const globalStyles = StyleSheet.create({
         marginBottom: 10,
 
     },
+    backIcon: {
+        width: 40,
+        height: 40
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 15,
+    },
+    logo: {
+        width: 200,
+        height: 50,
+        resizeMode: 'contain',
+    },
+    menuIcon: {
+        width: 20,
+        height: 20,
+    },
     center: {
         alignSelf: 'center'
     },
@@ -37,6 +56,8 @@ const globalStyles = StyleSheet.create({
     text: {
         color: acolors.textColor,
         fontSize: 14,
+        textAlign: 'justify',
+        lineHeight: 19,
     },
     bottomBtnBox: {
         paddingHorizontal: 20,

@@ -23,15 +23,13 @@ export default function Input({
 
 }) {
 
-    console.log(label)
-
     return (
         <>
             {label ? (
                 <Text
                     style={{
                         fontFamily: 'Gilroy-Regular',
-                        color: acolors.grey,
+                        color: acolors.textColor,
                         marginBottom: 10,
                         fontSize: 12,
                         ...labelStyle,

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 export default function Splash({ navigation }) {
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate('Home')
+            navigation.replace('MyDrawer')
         }, 2000)
     }, [])
     return (

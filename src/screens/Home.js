@@ -1,23 +1,45 @@
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { Image, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import Btn from '../components/Btn'
 import globalStyles from '../styles/globalStyles'
 import { acolors } from '../constants/colors'
+import Header from '../components/Header'
 
 const features = ['Corporate Transportation', 'Airport Pick Up/ Drop Off', 'Atlanta City Tours', 'Available 24 hours a Day']
 
+const imgs = [require('../assets/imgs/1.jpg'), require('../assets/imgs/2.jpg'), require('../assets/imgs/3.png')]
+
 export default function Home({ navigation }) {
+    const [current, setCurrent] = useState(1)
+
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrent(prev => {
+                if (prev === 1) {
+                    return 2;
+                } else if (prev === 2) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            });
+        }, 2000);
+
+        // Cleanup interval on component unmount
+        return () => clearInterval(intervalId);
+    }, []);
     return (
         <SafeAreaView style={globalStyles.safeView}>
+            <StatusBar
+                backgroundColor='#ffffff'
+            />
             <View style={globalStyles.container} >
                 <ScrollView style={globalStyles.mainContent}>
+                    <Header navigation={navigation} />
                     <Image
-                        source={require('../assets/imgs/logo.png')}
-                        style={styles.logo}
-                    />
-                    <Image
-                        source={require('../assets/imgs/car.png')}
-                        style={styles.car}
+                        source={imgs[current]}
+                        style={styles.imgSlider}
                     />
                     <Text style={globalStyles.heading1}>
                         Atlanta Area Transportation Services
@@ -40,7 +62,9 @@ export default function Home({ navigation }) {
                         <View style={styles.cardContent}>
                             <Text style={globalStyles.heading1}>About Us</Text>
                             <Text style={globalStyles.text}>ALPHARETTA TO AIRPORT car service  is the very definition of professional transportation for all your needs in Atlanta Metro, Midtown, Downtown, Buckhead, Airport & North Atlanta areas.</Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('AboutUs')}
+                            >
                                 <Text style={styles.linkText} >Read More</Text>
                             </TouchableOpacity>
                         </View>
@@ -52,7 +76,9 @@ export default function Home({ navigation }) {
                         <View style={styles.cardContent}>
                             <Text style={globalStyles.heading1}>Services</Text>
                             <Text style={globalStyles.text}>ALPHARETTA TO AIRPORT taxi and town car services accommodate all public and private airports in Atlanta including Hartsfield-Jackson International Airport. Corporate Transportation</Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('Services')}
+                            >
                                 <Text style={styles.linkText} >Read More</Text>
                             </TouchableOpacity>
                         </View>
@@ -64,12 +90,14 @@ export default function Home({ navigation }) {
                         <View style={styles.cardContent}>
                             <Text style={globalStyles.heading1}>Rates</Text>
                             <Text style={globalStyles.text}>Flat rates provided are for regular sedans. Flat rates provided for time calls have (5) minutes courtesy wait time additional charges may apply if driver has to wait any longer than time requested.</Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('Rates')}
+                            >
                                 <Text style={styles.linkText} >Read More</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={{ height: 100 }} />
+                    <View style={{ height: 50 }} />
                 </ScrollView>
 
                 <View style={globalStyles.bottomBtnBox}>
@@ -90,10 +118,11 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         borderRadius: 20,
     },
-    logo: {
-        width: 200,
-        height: 50,
-        resizeMode: 'contain',
+    imgSlider: {
+        width: '100%',
+        height: 240,
+        borderRadius: 10,
+        marginBottom: 10,
     },
     featuresBox: {
         flexWrap: 'wrap',
