@@ -50,8 +50,8 @@ export default function Reservation({ navigation }) {
         if (pickupMonth && pickupDay && pickupYear && pickupHours && pickupMinutes && pickupPeriod && pickupLocation && dropOffLocation && roundTrip && duration && preferredVehicle && noOfStops && noOfPassengers && name && email && phoneNumber && quoteOnly) {
 
             emailjs
-                .send('service_qd729g9', 'template_dfpec7v', dataObj, {
-                    publicKey: 'cqvvxyDj2QRuaiCpL',
+                .send('service_x7gb8w8', 'template_a9ehpbn', dataObj, {
+                    publicKey: 'V8SrExrLSXj2UXg9V',
                 })
                 .then(
                     (response) => {

@@ -30,8 +30,8 @@ export default function ContactUs({ navigation }) {
 
         if (name && email && subject && message) {
             emailjs
-                .send('service_qd729g9', 'template_nm610ja', dataObj, {
-                    publicKey: 'cqvvxyDj2QRuaiCpL',
+                .send('service_x7gb8w8', 'template_qz1jisd', dataObj, {
+                    publicKey: 'V8SrExrLSXj2UXg9V',
                 })
                 .then(
                     (response) => {
