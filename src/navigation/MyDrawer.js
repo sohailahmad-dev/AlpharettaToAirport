@@ -9,6 +9,7 @@ import Services from '../screens/Services';
 import Web from '../screens/Web';
 import Home from '../screens/Home';
 import AboutUs from '../screens/AboutUs';
+import Payment from '../screens/Payment';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,6 +26,7 @@ function MyDrawer() {
             <Drawer.Screen name="ContactUs" component={ContactUs} />
             <Drawer.Screen name='Rates' component={Rates} />
             <Drawer.Screen name='Web' component={Web} />
+            <Drawer.Screen name='Payment' component={Payment} />
             <Drawer.Screen name='Services' component={Services} />
             <Drawer.Screen name='AboutUs' component={AboutUs} />
 

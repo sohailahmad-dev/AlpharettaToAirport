@@ -24,7 +24,7 @@ const CustomDrawerContent = ({ navigation, ...props }) => {
         },
         {
             name: 'Pay Online',
-            to: 'Web',
+            to: 'Payment',
         },
         {
             name: 'About Us',
